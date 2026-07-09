@@ -10,6 +10,7 @@ import lombok.*;
 @Builder
 @Entity
 @Table(name = "bookingReview")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Review extends BaseEntity {
     @Column(nullable = false)
     private String content;

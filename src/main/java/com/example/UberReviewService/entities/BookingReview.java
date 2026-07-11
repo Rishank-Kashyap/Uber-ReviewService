@@ -9,5 +9,5 @@ import lombok.experimental.SuperBuilder;
 @Setter
 @NoArgsConstructor
 @SuperBuilder
-public class PassengerReview extends Review {
+public class BookingReview extends Review {
 }

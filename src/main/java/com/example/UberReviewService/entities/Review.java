@@ -2,23 +2,18 @@ package com.example.UberReviewService.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
+@Entity
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
-@Builder
-@Entity
-@Table(name = "bookingReview")
+@SuperBuilder //superbuilder passes through the heirarchy to build the objects and it doesn't require AllArgsConstructor because on a field less class it can collide wit NoArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Review extends BaseEntity {
+public abstract class Review extends BaseEntity {
     @Column(nullable = false)
     private String content;
 
+    @Column(nullable = false)
     private Double rating;
-
-    @Override
-    public String toString() {
-        return "Review:" + content + ", rating:" + rating + ", createdAt:" + this.createdAt;
-    }
 }

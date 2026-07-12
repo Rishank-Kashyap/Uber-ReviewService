@@ -2,6 +2,7 @@ package com.example.UberReviewService.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
 import lombok.Builder;
 import lombok.Getter;
@@ -37,6 +38,6 @@ public class Driver extends BaseEntity {
     // "driver" is the name of the @ManyToOne field in Booking (the owning side)
     // that actually holds the foreign key. This tells JPA the FK is managed there,
     // so it won't create a separate join column/table for this side.
-    @OneToMany(mappedBy = "driver")
+    @OneToMany(mappedBy = "driver", fetch = FetchType.LAZY)
     private List<Booking> bookings = new ArrayList<>();
 }

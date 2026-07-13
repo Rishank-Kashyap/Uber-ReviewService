@@ -1,6 +1,5 @@
 package com.example.UberReviewService.repositories;
 
-import com.example.UberReviewService.entities.Booking;
 import com.example.UberReviewService.entities.Driver;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -24,4 +23,5 @@ public interface DriverRepository extends JpaRepository<Driver, Long> {
     @Query("SELECT d FROM Driver d where d.id = :id AND d.licenseNumber = :licenseNumber")
     Optional<Driver> hqlfindByIdAndLicenceNumber(Long id, String licenseNumber);
 
+    List<Driver> findAllByIdIn(List<Long> driverIds);
 }

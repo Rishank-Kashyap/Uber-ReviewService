@@ -13,10 +13,10 @@ import java.util.Date;
 @SuperBuilder
 public class Booking extends BaseEntity {
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, fetch=FetchType.LAZY)
     private BookingReview bookingReview; // we have added 1:1 relationship between booking and bookingReview
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, fetch=FetchType.LAZY)
     private PassengerReview passengerReview;
 
 
@@ -31,9 +31,11 @@ public class Booking extends BaseEntity {
 
     private Long totalDistance;
 
-    @ManyToOne
+    // LAZY so loading a booking doesn't automatically pull the driver/passenger
+    // rows too (@ManyToOne defaults to EAGER, unlike @OneToMany)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Driver driver;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Passenger passenger;
 }

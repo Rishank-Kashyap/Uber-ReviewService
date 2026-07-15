@@ -16,4 +16,5 @@ public abstract class Review extends BaseEntity {
 
     @Column(nullable = false)
     private Double rating;
+
 }

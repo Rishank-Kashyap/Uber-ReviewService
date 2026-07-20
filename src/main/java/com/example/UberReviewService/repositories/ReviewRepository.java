@@ -17,13 +17,14 @@ public interface ReviewRepository extends JpaRepository<Review, Long> {
 
     List<Review> findAllByCreatedAtBefore(Date givenDate);
 
-    // JPQL works on ENTITIES and their fields, not tables: no SELECT *, and the
-    // join is implicit through the b.bookingReview / b.passengerReview association
-    // -- no ON clause needed.
-    @Query("SELECT b.bookingReview FROM Booking b WHERE b.id = :bookingId")
+    // JPQL navigates entity fields, not tables. The relationship is now
+    // unidirectional (Review owns `booking`), so we find a booking's review by
+    // querying the review whose booking has that id -- r.booking.id. Selecting
+    // FROM the concrete subtype (BookingReview / PassengerReview) filters by type.
+    @Query("SELECT r FROM BookingReview r WHERE r.booking.id = :bookingId")
     Review findBookingReviewByBookingId(Long bookingId);
 
-    @Query("SELECT b.passengerReview FROM Booking b WHERE b.id = :bookingId")
+    @Query("SELECT r FROM PassengerReview r WHERE r.booking.id = :bookingId")
     Review findPassengerReviewByBookingId(Long bookingId);
 
 }

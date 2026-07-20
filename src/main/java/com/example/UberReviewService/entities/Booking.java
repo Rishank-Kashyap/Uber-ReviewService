@@ -13,12 +13,10 @@ import java.util.Date;
 @SuperBuilder
 public class Booking extends BaseEntity {
 
-    @OneToOne(cascade = CascadeType.ALL, fetch=FetchType.LAZY)
-    private BookingReview bookingReview; // we have added 1:1 relationship between booking and bookingReview
-
-    @OneToOne(cascade = CascadeType.ALL, fetch=FetchType.LAZY)
-    private PassengerReview passengerReview;
-
+    // Note: the Booking <-> Review relationship is UNIDIRECTIONAL. Review owns it
+    // (Review.booking, FK review.booking_id NOT NULL), so a Booking holds no
+    // reference back to its reviews. To fetch a booking's reviews, query the
+    // review side by booking id (see ReviewRepository).
 
     @Enumerated(EnumType.STRING)
     private BookingStatus bookingStatus;

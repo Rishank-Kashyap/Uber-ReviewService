@@ -1,6 +1,6 @@
 package com.example.UberReviewService.dto;
 
-import com.example.UberReviewService.entities.Review;
+import com.example.UberEntityService.entity.Review;
 
 // Response DTO. We return this instead of the Review entity so serialization
 // doesn't follow the Review <-> Booking cycle (which would recurse infinitely).

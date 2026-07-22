@@ -1,9 +1,9 @@
 package com.example.UberReviewService.services;
 
 import com.example.UberReviewService.dto.CreateReviewRequest;
-import com.example.UberReviewService.entities.BookingReview;
-import com.example.UberReviewService.entities.PassengerReview;
-import com.example.UberReviewService.entities.Review;
+import com.example.UberEntityService.entity.BookingReview;
+import com.example.UberEntityService.entity.PassengerReview;
+import com.example.UberEntityService.entity.Review;
 
 import java.util.List;
 import java.util.Optional;

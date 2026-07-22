@@ -1,10 +1,10 @@
 package com.example.UberReviewService.services;
 
 import com.example.UberReviewService.dto.CreateReviewRequest;
-import com.example.UberReviewService.entities.Booking;
-import com.example.UberReviewService.entities.BookingReview;
-import com.example.UberReviewService.entities.PassengerReview;
-import com.example.UberReviewService.entities.Review;
+import com.example.UberEntityService.entity.Booking;
+import com.example.UberEntityService.entity.BookingReview;
+import com.example.UberEntityService.entity.PassengerReview;
+import com.example.UberEntityService.entity.Review;
 import com.example.UberReviewService.exceptions.ResourceNotFoundException;
 import com.example.UberReviewService.mappers.CreateReviewRequestMapper;
 import com.example.UberReviewService.repositories.BookingRepository;

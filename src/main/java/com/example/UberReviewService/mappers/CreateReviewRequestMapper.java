@@ -1,9 +1,9 @@
 package com.example.UberReviewService.mappers;
 
 import com.example.UberReviewService.dto.CreateReviewRequest;
-import com.example.UberReviewService.entities.Booking;
-import com.example.UberReviewService.entities.BookingReview;
-import com.example.UberReviewService.entities.PassengerReview;
+import com.example.UberEntityService.entity.Booking;
+import com.example.UberEntityService.entity.BookingReview;
+import com.example.UberEntityService.entity.PassengerReview;
 import org.springframework.stereotype.Component;
 
 // Pure mapper: DTO -> entity, no DB access and no side effects (easy to test).

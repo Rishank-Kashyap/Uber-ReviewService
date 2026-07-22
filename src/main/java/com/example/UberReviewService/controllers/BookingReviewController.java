@@ -2,7 +2,7 @@ package com.example.UberReviewService.controllers;
 
 import com.example.UberReviewService.dto.CreateReviewRequest;
 import com.example.UberReviewService.dto.ReviewResponse;
-import com.example.UberReviewService.entities.BookingReview;
+import com.example.UberEntityService.entity.BookingReview;
 import com.example.UberReviewService.services.ReviewService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
